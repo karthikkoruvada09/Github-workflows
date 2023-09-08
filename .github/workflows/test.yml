@@ -32,3 +32,12 @@ jobs:
         id: generate-output2  # This is to set uniqueness and an easy way to access a step in jobs
         run: |
           echo "Hello, GitHub Actions! ${{ steps.generate-output.outputs.my-name }}"       # Accessing output of the previous step in the current step
+  second-job:
+    runs-on: ubuntu-latest
+    name: second job in workflow
+    needs:
+      [first-job]
+    steps:
+      - name: "Chiru steps3"
+        id: generate-output3  
+        run: echo "${{needs.first-job.outputs.something}}"  # accessing output feom previous job
