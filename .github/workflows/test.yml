@@ -27,4 +27,4 @@ jobs:
           echo "Hello, GitHub Actions! ${{ github.event.inputs.environment }}"       # Using an event input parameter
           echo "Hello, GitHub Actions! ${{ github.event.inputs.branch-name }}"
           echo "Hello, GitHub Actions! ${{ env.SERVICE_NAME }}"       # Using an env variable
-          echo "::set-output name=my-name::karthik"       # Using an env variable
+          echo "my-name=karthik"  >>  $GITHUB_OUTPUT
