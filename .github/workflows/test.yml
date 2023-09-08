@@ -6,6 +6,7 @@ on :
 jobs:
   first-job: 
     runs-on: ubuntu-latest
+    name : something
     steps:
       - run: echo "Hello, GitHub Actions!" 
       - run: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
