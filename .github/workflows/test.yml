@@ -2,11 +2,19 @@
 name: 'Testing worflow'
 
 on : 
-    workflow_dispatch
+    workflow_dispatch:
+      inputs:
+       environment:
+        description : test environment
+        required : true
+       branch-name:
+        description : Branch name
+        required : true
+
 jobs:
   first-job: 
     runs-on: ubuntu-latest
     name : something
     steps:
-      - run: echo "Hello, GitHub Actions!" 
-      - run: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+      - run: echo "Hello, GitHub Actions! {{github.event.inputs.environment}}" 
+      - run: echo "Hello, GitHub Actions! {{github.event.inputs.branch-name}}" 
