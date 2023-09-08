@@ -1,9 +1,9 @@
-# Testin first workflow
+# workflow name
 name: 'Testing workflow basics'
 
 on : 
-# Testing event inputs parameters
     workflow_dispatch:
+#  Event inputs parameters
       inputs:
        environment:
         description : test environment
@@ -20,8 +20,8 @@ jobs:
     outputs:   
       something: ${{steps.generate-output.outputs.my-name}} # How to use outputs (for a job)
     steps:
-      - name: "Chiru steps"
-        id: generate-output  # This is to set uniqueness and easy way to access a step in jobs
+      - id: generate-output  # This is to set uniqueness and easy way to access a step in jobs
+        name: "Chiru steps"
         run: echo "Hello, GitHub Actions! ${{github.event.inputs.environment}}"  # using a event input parameter
         run: echo "Hello, GitHub Actions! ${{github.event.inputs.branch-name}}" 
         run: echo "Hello, GitHub Actions! ${{env.SERVICE_NAME}}"  #  using an env variable
