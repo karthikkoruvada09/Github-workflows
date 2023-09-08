@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello, GitHub Actions!" 
-      - run: echo "My secret key is $TEST_KEY"
+      - run: echo "My secret key is secrets.TEST_KEY"
