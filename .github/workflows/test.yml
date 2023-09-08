@@ -16,5 +16,5 @@ jobs:
     runs-on: ubuntu-latest
     name : something
     steps:
-      - run: echo "Hello, GitHub Actions! {{github.event.inputs.environment}}" 
-      - run: echo "Hello, GitHub Actions! {{github.event.inputs.branch-name}}" 
+      - run: echo "Hello, GitHub Actions! ${{github.event.inputs.environment}}" 
+      - run: echo "Hello, GitHub Actions! ${{github.event.inputs.branch-name}}" 
