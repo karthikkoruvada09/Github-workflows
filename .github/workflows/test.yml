@@ -2,6 +2,7 @@
 name: 'Testing worflow'
 
 on : 
+# Testing event inputs parameters
     workflow_dispatch:
       inputs:
        environment:
@@ -10,7 +11,8 @@ on :
        branch-name:
         description : Branch name
         required : true
-
+env:
+  SERVICE_NAME: dazn-performance-test
 jobs:
   first-job: 
     runs-on: ubuntu-latest
@@ -18,3 +20,4 @@ jobs:
     steps:
       - run: echo "Hello, GitHub Actions! ${{github.event.inputs.environment}}" 
       - run: echo "Hello, GitHub Actions! ${{github.event.inputs.branch-name}}" 
+      - run: echo "Hello, GitHub Actions! ${{env.SERVICE_NAME}}" 
