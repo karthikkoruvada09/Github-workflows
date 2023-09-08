@@ -1,5 +1,5 @@
 # Testin first workflow
-name: 'Testing worflow'
+name: 'Testing workflow basics'
 
 on : 
 # Testing event inputs parameters
@@ -9,15 +9,20 @@ on :
         description : test environment
         required : true
        branch-name:
-        description : Branch name
-        required : true
+        description : Branch name  #this is optional
 env:
   SERVICE_NAME: dazn-performance-test
+
 jobs:
   first-job: 
     runs-on: ubuntu-latest
-    name : something
+    name: something  
+    outputs:   
+      something: ${{steps.generate-output.outputs.my-name}} # How to use outputs (for a job)
     steps:
-      - run: echo "Hello, GitHub Actions! ${{github.event.inputs.environment}}" 
-      - run: echo "Hello, GitHub Actions! ${{github.event.inputs.branch-name}}" 
-      - run: echo "Hello, GitHub Actions! ${{env.SERVICE_NAME}}" 
+      - name: "Chiru steps"
+        id: generate-output  # This is to set uniqueness and easy way to access a step in jobs
+        run: echo "Hello, GitHub Actions! ${{github.event.inputs.environment}}"  # using a event input parameter
+        run: echo "Hello, GitHub Actions! ${{github.event.inputs.branch-name}}" 
+        run: echo "Hello, GitHub Actions! ${{env.SERVICE_NAME}}"  #  using an env variable
+        run: echo "::set-output name=my-name::karthik"  #  using an env variable
