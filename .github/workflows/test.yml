@@ -1,5 +1,5 @@
 # Testin first workflow
-name: 'Testing my first workflow file here'
+name: 'Testing worflow'
 
 on : 
     workflow_dispatch
