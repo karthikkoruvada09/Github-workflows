@@ -28,7 +28,7 @@ jobs:
           echo "Hello, GitHub Actions! ${{ github.event.inputs.branch-name }}"
           echo "Hello, GitHub Actions! ${{ env.SERVICE_NAME }}"       # Using an env variable
           echo "my-name=karthik"  >>  $GITHUB_OUTPUT
-     - name: "Chiru steps 2"
+      - name: "Chiru steps 2"
         id: generate-output2  # This is to set uniqueness and an easy way to access a step in jobs
         run: |
-          echo "Hello, GitHub Actions! ${{ steps.generate-output.outputs.my-name }}"       # Accessing output of previous step in current step
+          echo "Hello, GitHub Actions! ${{ steps.generate-output.outputs.my-name }}"       # Accessing output of the previous step in the current step
