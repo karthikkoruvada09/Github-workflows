@@ -1,0 +1,28 @@
+name: Create File and Run Terraform
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-file:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Create File
+      run: |
+        echo "This is the content of my_file.txt" > $GITHUB_WORKSPACE/my_file.txt
+
+  use-file:
+    needs: create-file
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Use File
+      run: |
+        cat $GITHUB_WORKSPACE/my_file.txt
