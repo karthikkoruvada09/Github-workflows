@@ -35,9 +35,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: my-file
-        path: ./my_file.txt
+        path: my_file.txt
 
     - name: Use File
       run: |
         ls -la ./  # Debugging: List files in the workspace
-        cat ./my_file.txt
+        cat my_file.txt
