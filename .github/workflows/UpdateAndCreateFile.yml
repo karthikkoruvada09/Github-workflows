@@ -1,8 +1,3 @@
-name: Create File and Run Terraform
-
-on:
-  workflow_dispatch:
-
 jobs:
   create-file:
     runs-on: ubuntu-latest
@@ -14,6 +9,8 @@ jobs:
     - name: Create File
       run: |
         echo "This is the content of my_file.txt" > $GITHUB_WORKSPACE/my_file.txt
+        ls -la $GITHUB_WORKSPACE  # Debugging: List files in the workspace
+        cat $GITHUB_WORKSPACE/my_file.txt
 
   use-file:
     needs: create-file
@@ -25,4 +22,5 @@ jobs:
 
     - name: Use File
       run: |
+        ls -la $GITHUB_WORKSPACE  # Debugging: List files in the workspace
         cat $GITHUB_WORKSPACE/my_file.txt
