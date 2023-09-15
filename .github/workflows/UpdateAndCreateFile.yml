@@ -13,15 +13,15 @@ jobs:
 
     - name: Create File
       run: |
-        echo "This is the content of my_file.txt" > $GITHUB_WORKSPACE/my_file.txt
-        ls -la $GITHUB_WORKSPACE  # Debugging: List files in the workspace
-        cat $GITHUB_WORKSPACE/my_file.txt
+        echo "This is the content of my_file.txt" > ./tmp/my_file.txt
+        ls -la   # Debugging: List files in the workspace
+        cat ./tmp/my_file.txt
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-file
-        path: $GITHUB_WORKSPACE/my_file.txt
+        path: ./tmp
 
   use-file:
     needs: create-file
