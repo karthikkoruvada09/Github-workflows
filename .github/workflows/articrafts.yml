@@ -1,4 +1,4 @@
-name: Create File and Run Terraform
+name: Create File, upload and download from articrafts
 
 on:
   workflow_dispatch:
