@@ -1,3 +1,7 @@
+name: Create File and Run Terraform
+
+on:
+  workflow_dispatch:
 jobs:
   create-file:
     runs-on: ubuntu-latest
