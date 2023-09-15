@@ -10,36 +10,34 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      
-    - name: Create directory
-      run: mkdir -p path/to/artifac t
+
     - name: Create File
       run: |
-        echo "This is the content of my_file.txt" > path/to/artifact/my_file.txt
-        ls -la path/to/artifact # Debugging: List files in the workspace
-        cat ./tmp/my_file.txt
+        echo "This is the content of my_file.txt" > ./my_file.txt
+        ls -la ./my_file.txt # Debugging: List files in the workspace
+        cat ./my_file.txt
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-file
-        path: path/to/artifact/my_file.txt
+        path: ./my_file.txt
 
-  use-file:
-    needs: create-file
-    runs-on: ubuntu-latest
+  # use-file:
+  #   needs: create-file
+  #   runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+  #   steps:
+  #   - name: Checkout code
+  #     uses: actions/checkout@v2
 
-    - name: Download Artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: my-file
-        path: /tmp/my_file.txt
+  #   - name: Download Artifact
+  #     uses: actions/download-artifact@v2
+  #     with:
+  #       name: my-file
+  #       path: /tmp/my_file.txt
 
-    - name: Use File
-      run: |
-        ls -la /tmp  # Debugging: List files in the workspace
-        cat /tmp/my_file.txt
+  #   - name: Use File
+  #     run: |
+  #       ls -la /tmp  # Debugging: List files in the workspace
+  #       cat /tmp/my_file.txt
