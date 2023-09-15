@@ -10,8 +10,9 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-      run: mkdir -p path/to/artifact
-
+      
+    - name: Create directory
+      run: mkdir -p path/to/artifac t
     - name: Create File
       run: |
         echo "This is the content of my_file.txt" > path/to/artifact/my_file.txt
