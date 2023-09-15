@@ -23,21 +23,21 @@ jobs:
         name: my-file
         path: ./my_file.txt
 
-  # use-file:
-  #   needs: create-file
-  #   runs-on: ubuntu-latest
+  use-file:
+    needs: create-file
+    runs-on: ubuntu-latest
 
-  #   steps:
-  #   - name: Checkout code
-  #     uses: actions/checkout@v2
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-  #   - name: Download Artifact
-  #     uses: actions/download-artifact@v2
-  #     with:
-  #       name: my-file
-  #       path: /tmp/my_file.txt
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: my-file
+        path: ./my_file.txt
 
-  #   - name: Use File
-  #     run: |
-  #       ls -la /tmp  # Debugging: List files in the workspace
-  #       cat /tmp/my_file.txt
+    - name: Use File
+      run: |
+        ls -la ./  # Debugging: List files in the workspace
+        cat ./my_file.txt
