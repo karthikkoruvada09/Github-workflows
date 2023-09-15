@@ -34,8 +34,7 @@ jobs:
     - name: Download Artifact
       uses: actions/download-artifact@v2
       with:
-        name: my-file
-        path: my_file.txt
+        name: my_file.txt
 
     - name: Use File
       run: |
