@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       run: mkdir -p path/to/artifact
 
     - name: Create File
@@ -19,7 +19,7 @@ jobs:
         cat ./tmp/my_file.txt
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: my-file
         path: path/to/artifact/my_file.txt
