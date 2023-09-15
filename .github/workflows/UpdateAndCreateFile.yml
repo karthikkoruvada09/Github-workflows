@@ -13,8 +13,12 @@ jobs:
     - name: Create File
       run: |
         echo "This is the content of my_file.txt" > $GITHUB_WORKSPACE/my_file.txt
-        ls -la $GITHUB_WORKSPACE  # Debugging: List files in the workspace
-        cat $GITHUB_WORKSPACE/my_file.txt
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-file
+        path: $GITHUB_WORKSPACE/my_file.txt
 
   use-file:
     needs: create-file
@@ -24,7 +28,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Download Artifact
+      uses: actions/download-artifact@v2
+      with:
+        name: my-file
+
     - name: Use File
       run: |
-        ls -la $GITHUB_WORKSPACE  # Debugging: List files in the workspace
-        cat $GITHUB_WORKSPACE/my_file.txt
+        cat my_file.txt
