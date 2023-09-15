@@ -15,7 +15,7 @@ jobs:
     - name: Create File
       run: |
         echo "This is the content of my_file.txt" > path/to/artifact/my_file.txt
-        ls -la   # Debugging: List files in the workspace
+        ls -la path/to/artifact # Debugging: List files in the workspace
         cat ./tmp/my_file.txt
 
     - name: Upload Artifact
