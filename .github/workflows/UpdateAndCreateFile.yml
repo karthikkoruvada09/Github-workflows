@@ -2,6 +2,7 @@ name: Create File and Run Terraform
 
 on:
   workflow_dispatch:
+  
 jobs:
   create-file:
     runs-on: ubuntu-latest
@@ -13,6 +14,8 @@ jobs:
     - name: Create File
       run: |
         echo "This is the content of my_file.txt" > $GITHUB_WORKSPACE/my_file.txt
+        ls -la $GITHUB_WORKSPACE  # Debugging: List files in the workspace
+        cat $GITHUB_WORKSPACE/my_file.txt
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
@@ -32,7 +35,9 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: my-file
+        path: /tmp/my-file.txt
 
     - name: Use File
       run: |
-        cat my_file.txt
+        ls -la /tmp  # Debugging: List files in the workspace
+        cat /tmp/my-file.txt
