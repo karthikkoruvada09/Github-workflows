@@ -9,19 +9,20 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      run: mkdir -p path/to/artifact
 
     - name: Create File
       run: |
-        echo "This is the content of my_file.txt" > ./tmp/my_file.txt
+        echo "This is the content of my_file.txt" > path/to/artifact/my_file.txt
         ls -la   # Debugging: List files in the workspace
         cat ./tmp/my_file.txt
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: my-file
-        path: ./tmp
+        path: path/to/artifact/my_file.txt
 
   use-file:
     needs: create-file
