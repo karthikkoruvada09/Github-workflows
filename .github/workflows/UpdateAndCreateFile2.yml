@@ -20,8 +20,8 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
-        name: my-file
-        path: my_file.txt
+        name: my_file.txt
+        path: ./my_file.txt
 
   use-file:
     needs: create-file
