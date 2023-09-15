@@ -13,15 +13,15 @@ jobs:
 
     - name: Create File
       run: |
-        echo "This is the content of my_file.txt" > ./my_file.txt
-        ls -la ./my_file.txt # Debugging: List files in the workspace
-        cat ./my_file.txt
+        echo "This is the content of my_file.txt" > my_file.txt
+        ls -la ./ # Debugging: List files in the workspace
+        cat my_file.txt
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-file
-        path: ./my_file.txt
+        path: my_file.txt
 
   use-file:
     needs: create-file
