@@ -33,16 +33,15 @@ jobs:
           export MY_SECRET="${{ secrets.SOMETHING }}"
           echo "MY_SECRET=$MY_SECRET"
       
-      - name: Write secret to file
+      - name: Set env as secret
         env:
-           MY_VAL: ${{ secrets.SOMETHING }}
+          MY_VAL: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
         run: |
-          import os  # Add this line to import the os module
-          
-          with open("file", "w") as data:
-            for q in os.getenv("MY_VAL"):
-                print(q, end="")
-                data.write(q)
+          import os
+          data = open("file", "w")
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+            data.write(q)
         shell: python
         
       - name: "Chiru steps 2"
