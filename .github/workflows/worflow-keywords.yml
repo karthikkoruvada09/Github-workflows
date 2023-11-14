@@ -37,10 +37,12 @@ jobs:
         env:
            MY_VAL: ${{ secrets.SOMETHING }}
         run: |
+          import os  # Add this line to import the os module
+          
           with open("file", "w") as data:
-              for q in os.getenv("MY_VAL"):
-                  print(q, end="")
-                  data.write(q)
+            for q in os.getenv("MY_VAL"):
+                print(q, end="")
+                data.write(q)
         shell: python
         
       - name: "Chiru steps 2"
