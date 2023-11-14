@@ -35,7 +35,7 @@ jobs:
       
       - name: Write secret to file
         env:
-           MY_VAL: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+           MY_VAL: ${{ secrets.SOMETHING }}
         run: |
           with open("file", "w") as data:
               for q in os.getenv("MY_VAL"):
