@@ -29,6 +29,9 @@ jobs:
           echo "Hello, GitHub Actions! ${{ env.SERVICE_NAME }}"       # Using an env variable defined at top level (workflow level)
           echo "my-name=karthik"  >>  $GITHUB_OUTPUT
           echo "${{ secrets.SOMETHING }}"
+          echo "Setting secrets as environment variables"
+          export MY_SECRET="${{ secrets.SOMETHING }}"
+          echo "MY_SECRET=$MY_SECRET"
       - name: "Chiru steps 2"
         id: generate-output2  # This is to set uniqueness and an easy way to access a step in jobs
         run: |
