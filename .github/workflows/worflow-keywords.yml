@@ -35,7 +35,7 @@ jobs:
       
       - name: Set env as secret
         env:
-          MY_VAL: ${{ secrets.GLOBAL_GITHUB_TOKEN }}
+          MY_VAL: ${{ secrets.SOMETHING }}
         run: |
           import os
           data = open("file", "w")
