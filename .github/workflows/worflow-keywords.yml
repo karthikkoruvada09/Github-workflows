@@ -57,3 +57,8 @@ jobs:
       - name: "Chiru steps3"
         id: generate-output3  
         run: echo "${{needs.first-job.outputs.something}}"  # accessing output of previous job
+
+
+
+# github events inputs, steps id outputs, needs first-job outputs
+# In same job, can be accessed using  "steps id outputs", OutPut from one job to previous job can be accessed using "needs first-job outputs"
